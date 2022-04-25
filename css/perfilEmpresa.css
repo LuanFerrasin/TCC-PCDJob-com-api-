@@ -91,20 +91,92 @@ main{
     width: auto;
     background-color: #F0F0F0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     flex-grow: 1;
 }
 
+.sobreEmpresa{
+    width: 55.5vw;
+    height: fit-content;
+    background-color: #fefefe;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.informacoes{
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgEmpresa img{
+    width: 125px;
+    height: 125px;
+    margin-top: 35px;
+}
+
+.conteudoVaga{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.conteudoVaga .tituloVaga{
+    display: flex;
+}
+
+.conteudoVaga .tituloVaga h1{
+    margin-top: 25px;
+    font-size: 32px;
+}
+
+.conteudoVaga .empresaVaga{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.conteudoVaga .empresaVaga img{
+    height: 25px;
+    width: 25px;
+}
+
+.sobreEmpresa .linha{
+    width: 90%;
+    height: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.sobreEmpresa .sobre{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-bottom: 45px;
+}
+
+.sobre h3{
+    font-size: 1.5rem;
+}
+
 .filtros{
     height: fit-content;
-    width: 18vw;
+    width: 17vw;
     background-color: #fefefe;
     border-radius: 5px;
 }
 
 .filtros .tituloFiltros{
     font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
@@ -116,13 +188,11 @@ main{
 
 .filtros .filtrosDeficiencia .tituloDeficiencia{
     font-size: 1.25rem;
-    font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
 .filtros .filtrosDeficiencia .opcoesDeficiencia{
-    height: 75px;
     margin-left: 45px;
     display: flex;
     flex-direction: column;
@@ -131,7 +201,6 @@ main{
 
 .filtros .filtrosDeficiencia .opcoesDeficiencia .checkbox{
     font-size: 1.125rem;
-    font-family: 'Poppins', sans-serif;
     margin-top: 10px;
     padding-right: 100px;
 }
@@ -143,7 +212,6 @@ main{
 
 .filtrosRegiao .tituloRegiao{
     font-size: 20px;
-    font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
@@ -197,25 +265,25 @@ main{
     margin-left: 45px;
 }
 
-.filtros .nivelAcademico,.areaTrabalho{
+.filtros .suporteOferecido{
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
 }
 
-.tituloNivelAcademico,.tituloAreaTrabalho{
+.suporteOferecido .tituloSuporte{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico,.selectAreaTrabalho{
+.suporteOferecido .selectSuporte{
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico select,.selectAreaTrabalho select{
+.suporteOferecido .selectSuporte select{
     width: 10vw;
     height: 30px;
     background-color: #F5F5F5;
@@ -235,7 +303,7 @@ main{
 
 .candidatosConteiner .candidatos{
     height: fit-content;
-    width: 35vw;
+    width: 36vw;
     background-color: #fefefe;
     border-radius: 5px;
     display: flex;
@@ -298,23 +366,23 @@ main{
     align-items: center;
     justify-content: center;
     height: 35px;
-    width: 10vw;
+    width: fit-content;
     border-radius: 10px;
     background-color: #2795D2;
     margin-top: 4%;
 }
 
 .candidatos .tipoDeficiencia h2{
+    margin: 5px;
     font-size: 20px;
     color: white;
     font-family: 'Poppins', sans-serif;
 }
 
-.candidatos .botaoSaibaMais button{
-    font-size: 18px;
-    font-family: 'Poppins', sans-serif;
-    height: 35px;
-    width: 7vw;
+.footerCandidatos .botaoSaibaMais button{
+    font-size: 1.125rem;
+    height: fit-content;
+    width: fit-content;
     border-radius: 10px;
     background-color: #1E7596;
     color: white;
@@ -322,12 +390,9 @@ main{
     margin-top: 25px;
 }
 
-
-
-
-
-
-
+.botaoSaibaMais p{
+    padding: 5px;
+}
 
 footer{
     height: 100px;
@@ -347,4 +412,75 @@ footer p{
 .versao{
     position: absolute;
     right: 5%;
+}
+
+
+@media (min-width:800px) and (max-width:1800px){
+    main{
+        align-items: center;
+        flex-direction: column;
+        row-gap: 35px;
+    }
+
+    .filtros{
+        width: 52vw;
+        margin-bottom: 25px;
+    }
+
+    .filtros .filtrosDeficiencia .opcoesDeficiencia{
+        height: auto;
+        flex-direction: row;
+    }
+
+    .filtrosRegiao .selectEstado select{
+        width: 20vw;
+    }
+
+    .filtrosRegiao .selectCidade select{
+        width: 25vw;
+    }
+
+    .filtrosSalario .radioSalario{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .suporteOferecido .selectSuporte select{
+        width: 30vw;
+    }
+
+    .candidatosConteiner{
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 45px;
+        gap: 45px;
+    }
+    
+    .candidatosConteiner .candidatos{
+        height: fit-content;
+        width: 50vw;
+    }
+
+    .candidatos .headerCandidatos{
+        width: 40vw;
+
+    }
+
+    .candidatos .tipoDeficiencia{
+        margin-top: 6%;
+    }
+
+    .candidatos .tipoDeficiencia h2{
+        font-size: 1rem;
+    }
+
+    .candidatos .footerCandidatos{
+        width: 40vw;
+        justify-content: flex-start;
+        margin-bottom: 25px;
+    }
 }

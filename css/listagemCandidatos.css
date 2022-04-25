@@ -93,6 +93,7 @@ main{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    flex-wrap: wrap;
 }
 
 .filtros{
@@ -114,26 +115,25 @@ main{
     flex-direction: column;
 }
 
-.filtros .filtrosDeficiencia .tituloDeficiencia{
+.filtros .tituloDeficiencia{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.filtros .filtrosDeficiencia .opcoesDeficiencia{
-    height: 75px;
-    margin-left: 45px;
+.filtros .opcoesDeficiencia{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    column-gap: 100px;
+    margin-left: 45px;
 }
 
-.filtros .filtrosDeficiencia .opcoesDeficiencia .checkbox{
+.filtros .opcoesDeficiencia .checkbox{
     font-size: 1.125rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 10px;
-    padding-right: 100px;
 }
 
 .filtros .filtrosRegiao{
@@ -141,21 +141,21 @@ main{
     flex-direction: column;
 }
 
-.filtrosRegiao .tituloRegiao{
+.filtros .tituloRegiao{
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.filtrosRegiao .selectEstado{
+.filtros  .selectEstado{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 15px;
     margin-left: 40px;
 }
 
-.filtrosRegiao .selectEstado select{
+.filtros .selectEstado select{
     width: 5vw;
     height: 30px;
     background-color: #F5F5F5;
@@ -163,14 +163,14 @@ main{
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.filtrosRegiao .selectCidade{
+.filtros .selectCidade{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 15px;
     margin-left: 40px;
 }
 
-.filtrosRegiao .selectCidade select{
+.filtros .selectCidade select{
     width: 10vw;
     height: 30px;
     background-color: #F5F5F5;
@@ -178,44 +178,44 @@ main{
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.filtrosSalario .tituloSalario{
+.filtros .tituloTipoVaga{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.filtrosSalario .radioSalario{
+.filtros .radioTipoVaga{
     display: flex;
     flex-direction: column;
 }
 
-.radioSalario .inputSalario{
+.filtros .radioTipoVaga .inputTipoVaga{
     font-size: 1.125rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 15px;
     margin-left: 45px;
 }
 
-.filtros .nivelAcademico,.areaTrabalho{
+.filtros .nivelAcademico{
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
 }
 
-.tituloNivelAcademico,.tituloAreaTrabalho{
+.filtros .nivelAcademico .tituloNivelAcademico{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico,.selectAreaTrabalho{
+.filtros .nivelAcademico .selectNivelAcademico{
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico select,.selectAreaTrabalho select{
+.filtros .nivelAcademico .selectNivelAcademico select{
     width: 10vw;
     height: 30px;
     background-color: #F5F5F5;
@@ -234,7 +234,7 @@ main{
 }
 
 .candidatosConteiner .candidatos{
-    height: fit-content;
+    height: 250px;
     width: 35vw;
     background-color: #fefefe;
     border-radius: 5px;
@@ -263,6 +263,7 @@ main{
  .headerCandidatos .conteudoCandidato{
     display: flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 
 .candidatos .headerCandidatos .conteudoCandidato h1{
@@ -289,8 +290,8 @@ main{
 .candidatos .footerCandidatos{
     width: 30vw;
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 25px;
+    justify-content: right;
+    column-gap: 25px;
 }
 
 .candidatos .tipoDeficiencia{
@@ -301,7 +302,7 @@ main{
     width: 10vw;
     border-radius: 10px;
     background-color: #2795D2;
-    margin-top: 4%;
+    margin-top: 10px;
 }
 
 .candidatos .tipoDeficiencia h2{
@@ -310,7 +311,7 @@ main{
     font-family: 'Poppins', sans-serif;
 }
 
-.candidatos .botaoSaibaMais button{
+.candidatos .footerCandidatos .botaoSaibaMais button{
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     height: 35px;
@@ -321,13 +322,6 @@ main{
     border: none;
     margin-top: 25px;
 }
-
-
-
-
-
-
-
 
 footer{
     height: 100px;

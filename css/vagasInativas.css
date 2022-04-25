@@ -93,6 +93,38 @@ main{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.menuVagas{
+    height: 70px;
+    width: 55.5vw;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.menuVagas .menuItens{
+    background-color: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menuVagas p{
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #2795D2;
+}
+
+.menuVagas a{
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    text-decoration: none;
 }
 
 .filtros{
@@ -197,25 +229,25 @@ main{
     margin-left: 45px;
 }
 
-.filtros .nivelAcademico,.areaTrabalho{
+.filtros .suporteOferecido{
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
 }
 
-.tituloNivelAcademico,.tituloAreaTrabalho{
+.suporteOferecido .tituloSuporte{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico,.selectAreaTrabalho{
+.suporteOferecido .selectSuporte{
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico select,.selectAreaTrabalho select{
+.suporteOferecido .selectSuporte select{
     width: 10vw;
     height: 30px;
     background-color: #F5F5F5;
@@ -234,7 +266,7 @@ main{
 }
 
 .candidatosConteiner .candidatos{
-    height: fit-content;
+    height: 250px;
     width: 35vw;
     background-color: #fefefe;
     border-radius: 5px;
@@ -263,6 +295,7 @@ main{
  .headerCandidatos .conteudoCandidato{
     display: flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 
 .candidatos .headerCandidatos .conteudoCandidato h1{
@@ -286,11 +319,28 @@ main{
     width: 25px;
 }
 
+.candidatos .headerCandidatos .candidatoAtivo{
+    display: flex;
+    font-size: 16px;
+    color: #AA3E3E;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 38px;
+    margin-bottom: 5px;
+    border: none;
+    background-color: white;
+}
+
+.headerCandidatos .candidatoAtivo img{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+
 .candidatos .footerCandidatos{
     width: 30vw;
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 25px;
+    justify-content: right;
+    column-gap: 25px;
 }
 
 .candidatos .tipoDeficiencia{
@@ -301,7 +351,7 @@ main{
     width: 10vw;
     border-radius: 10px;
     background-color: #2795D2;
-    margin-top: 4%;
+    margin-top: 10px;
 }
 
 .candidatos .tipoDeficiencia h2{
@@ -310,7 +360,19 @@ main{
     font-family: 'Poppins', sans-serif;
 }
 
-.candidatos .botaoSaibaMais button{
+.candidatos .footerCandidatos .botaoCandidatos button{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    height: 35px;
+    width: 7vw;
+    border-radius: 10px;
+    background-color: white;
+    color: #1E7596;
+    border: 2px solid #1E7596;
+    margin-top: 25px;
+}
+
+.candidatos .footerCandidatos .botaoSaibaMais button{
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     height: 35px;
@@ -321,13 +383,6 @@ main{
     border: none;
     margin-top: 25px;
 }
-
-
-
-
-
-
-
 
 footer{
     height: 100px;

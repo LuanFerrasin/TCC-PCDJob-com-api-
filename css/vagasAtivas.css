@@ -93,6 +93,38 @@ main{
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.menuVagas{
+    height: 70px;
+    width: 55.5vw;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.menuVagas .menuItens{
+    background-color: #fefefe;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menuVagas p{
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: #2795D2;
+}
+
+.menuVagas a{
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    text-decoration: none;
 }
 
 .filtros{
@@ -197,31 +229,32 @@ main{
     margin-left: 45px;
 }
 
-.filtros .nivelAcademico,.areaTrabalho{
+.filtros .suporteOferecido{
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
 }
 
-.tituloNivelAcademico,.tituloAreaTrabalho{
+.suporteOferecido .tituloSuporte{
     font-size: 1.25rem;
     font-family: 'Poppins', sans-serif;
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico,.selectAreaTrabalho{
+.suporteOferecido .selectSuporte{
     margin-top: 25px;
     margin-left: 40px;
 }
 
-.selectNivelAcademico select,.selectAreaTrabalho select{
+.suporteOferecido .selectSuporte select{
     width: 10vw;
     height: 30px;
     background-color: #F5F5F5;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
+
 
 .candidatosConteiner{
     width: auto;
@@ -234,7 +267,7 @@ main{
 }
 
 .candidatosConteiner .candidatos{
-    height: fit-content;
+    height: 250px;
     width: 35vw;
     background-color: #fefefe;
     border-radius: 5px;
@@ -243,35 +276,36 @@ main{
     align-items: center;
 }
 
-.candidatos .headerCandidatos{
+.candidatosConteiner .candidatos .headerCandidatos{
     width: 30vw;
     display: flex;
     justify-content: space-between;
 }
 
-.headerCandidatos .informacaoCandidatos{
+.candidatosConteiner .candidatos .headerCandidatos .informacaoCandidatos{
     display: flex;
     flex-direction: row;
 }
 
- .headerCandidatos .imgEmpresa img{
+.candidatosConteiner .candidatos .headerCandidatos .imgEmpresa img{
     width: 125px;
     height: 125px;
     margin-top: 35px;
 }
 
- .headerCandidatos .conteudoCandidato{
+.candidatosConteiner .candidatos .headerCandidatos .conteudoCandidato{
     display: flex;
     flex-direction: column;
+    margin-left: 25px;
 }
 
-.candidatos .headerCandidatos .conteudoCandidato h1{
+.candidatosConteiner .candidatos .headerCandidatos .conteudoCandidato h1{
     margin-top: 25px;
     font-size: 32px;
     font-family: 'Poppins', sans-serif;
 }
 
-.conteudoCandidato .localCandidato{
+.candidatosConteiner .candidatos .headerCandidatos .conteudoCandidato .localCandidato{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -281,19 +315,36 @@ main{
     margin-bottom: 5px;
 }
 
-.conteudoCandidato .localCandidato img{
+.candidatosConteiner .candidatos .headerCandidatos .conteudoCandidato .localCandidato img{
     height: 25px;
     width: 25px;
 }
 
-.candidatos .footerCandidatos{
-    width: 30vw;
+.candidatosConteiner .candidatos .headerCandidatos .candidatoAtivo{
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 25px;
+    font-size: 16px;
+    color: #75BA69;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 38px;
+    margin-bottom: 5px;
+    border: none;
+    background-color: white;
 }
 
-.candidatos .tipoDeficiencia{
+.candidatosConteiner .candidatos .headerCandidatos .candidatoAtivo img{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+
+.candidatosConteiner .candidatos .footerCandidatos{
+    width: 30vw;
+    display: flex;
+    justify-content: right;
+    column-gap: 25px;
+}
+
+.candidatosConteiner .candidatos .tipoDeficiencia{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,16 +352,28 @@ main{
     width: 10vw;
     border-radius: 10px;
     background-color: #2795D2;
-    margin-top: 4%;
+    margin-top: 10px;
 }
 
-.candidatos .tipoDeficiencia h2{
+.candidatosConteiner .candidatos .tipoDeficiencia h2{
     font-size: 20px;
     color: white;
     font-family: 'Poppins', sans-serif;
 }
 
-.candidatos .botaoSaibaMais button{
+.candidatosConteiner .candidatos .footerCandidatos .botaoCandidatos button{
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    height: 35px;
+    width: 7vw;
+    border-radius: 10px;
+    background-color: white;
+    color: #1E7596;
+    border: 2px solid #1E7596;
+    margin-top: 25px;
+}
+
+.candidatosConteiner .candidatos .footerCandidatos .botaoSaibaMais button{
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     height: 35px;
@@ -321,13 +384,6 @@ main{
     border: none;
     margin-top: 25px;
 }
-
-
-
-
-
-
-
 
 footer{
     height: 100px;
