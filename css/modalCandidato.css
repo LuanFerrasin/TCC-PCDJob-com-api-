@@ -1,0 +1,152 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-main:#2795D2;
+    --color-button-active:#1E7596;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    padding: 170px;
+    background-color: #504d4d;
+}
+
+#containerModal{
+    width: 1360px;
+    height: 900px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    background-color: #fefefe;
+    position: relative;
+}
+
+.fechar{
+    position: absolute;
+    width: 30px;
+    right: 60px;
+    top: 26px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    background: #ff4545;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #ffff;
+}
+
+#headerVaga{
+    width: 88%;
+    height: 120px;
+    margin-top: 20px;
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
+    margin: 0 auto 0 auto;
+}
+
+#imgPreviewEmpresa{
+    width: 90px;
+    height: 90px;
+    margin: 0 15px 0 10px;
+    border-radius: 5px;
+    background-color: burlywood;
+}
+
+#informacoesVaga{
+    width: 90%;
+    height: inherit;
+    padding-top: 5px;
+}
+
+#tituloDeficienciaVaga{
+    display: flex;
+}
+
+#tituloVaga{
+    font-size: 23px;
+    font-family: 'Poppins';
+}
+
+#deficienciaVaga{
+    width: 230px;
+    height: 28px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    margin: 12px 0 0 290px;
+    background-color: var(--color-main);
+    color: white;
+}
+
+#nomeEmpresa{
+    margin-bottom: 7px;
+}
+
+
+#nomeEmpresa, #localVaga{
+    display: flex;
+    align-items: center;
+}
+
+#nomeEmpresa img{
+    width: 20px;
+    height: 20px;
+}
+
+#nomeEmpresa p{
+    margin-left: 3px;
+    font-size: 16px;
+    font-family: 'Poppins';
+}
+
+#localVaga img{
+    width: 20px;
+    height: 20px;
+}
+
+#localVaga p{
+    margin-left: 3px;
+    font-size: 16px;
+    font-family: 'Poppins';
+}
+
+#buttonsContainer{
+    width: 500px;
+    height: 50px;
+    margin: 10px 0 0 81px;
+}
+
+.formatacaoButton{
+    width: 130px;
+    height: 35px;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    font-size: 16px;
+}
+
+.formatacaoButton img{
+    width: 20px;
+    height: 20px;
+}
+
+.active{
+    color: white;
+    background-color: var(--color-button-active);
+}
+
+.activeSec{
+    color: white;
+    background-color: #6D6D6D;
+}
