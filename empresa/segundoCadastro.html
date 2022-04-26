@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
-    
+    <script src="../js/enderecoEmpresa.js" defer></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -37,17 +37,16 @@
                 </div>
                 <form action="">
                     <div class="single-input">
-                        
+                        <input type="number" name="" id="cep" class="input" required>
+                        <label for="cep">Cep</label>
+                    </div>
+                    <div class="single-input">
                         <input  type="text" name="" id="rua" class="input" required>
                         <label for="rua">Rua</label>
                     </div>
                     <div class="single-input">
                         <input type="number" name="" id="numero" class="input" required>
                         <label for="numero">Número</label>
-                    </div>
-                    <div class="single-input">
-                        <input type="number" name="" id="cep" class="input" required>
-                        <label for="cep">Cep</label>
                     </div>
                     <div class="single-input">
                         <input type="text" name="" id="bairro" class="input" required>
@@ -63,11 +62,7 @@
                     </div>
                     <p>Entre com outra conta.</p>
                 <input  class="btn-google" type="submit" value="">
-                <input  id="btnCadastro"  type="button" value="Próximo">
-                <p>Já possui uma conta?</p>
-                <div class="possui-conta">
-                <input  id="btn-entrar" type="submit" value="Entrar">
-                </div>
+                <input  id="btnCadastro"  type="button" value="Concluido">
             </form>
             </div>
         </section>

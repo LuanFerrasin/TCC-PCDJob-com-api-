@@ -1,5 +1,7 @@
 'use strict';
 
+let idEmpresa = 0
+
 const getList = (string) => {
     const variable = document.getElementById(string).value
     const array = [variable]
@@ -24,15 +26,16 @@ const cadastrarEmpresa = async() => {
         senha: document.getElementById('senha').value,
         telefone: getList('telefone'),
         areaAtuacao: document.getElementById('area-atuacao').value
-        
     }
-
-    if(validacao(empresa)) {
-         await postEmpresa(empresa)
-    } else {
-        alert("preencha os campos vazios")
-    }
+    await postEmpresa(empresa)
 }
+
+const setId = (id) => {
+    console.log(id)
+    sessionStorage.setItem('id', id)
+    
+}
+
 
 document.getElementById('btnCadastro').addEventListener('click', cadastrarEmpresa)
 
@@ -48,9 +51,18 @@ const postEmpresa =  async(empresa) => {
         }
     }
 
-    await fetch(urlCadastro, options).then(resp=>console.log(resp))
-   
+    await fetch(urlCadastro, options).then(resp => resp.json()).then(json => {
+        idEmpresa = json.id
+        window.location.href = `segundoCadastro.html?id=${idEmpresa}`
+    }).catch(err => {
+        alert("Houve algum erro")
+        console.log(err)
+    })
 
+}
+
+const exibir = (id) => {
+    console.log(id)
 }
 
 const putProduto = async (empresa) => {
@@ -87,5 +99,3 @@ const getEmpresa = () => {
     fetch(urlListar, options).then(resp=>console.log(resp))
 
 }
-
-
