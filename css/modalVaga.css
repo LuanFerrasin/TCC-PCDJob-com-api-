@@ -14,13 +14,14 @@
 body{
     display: flex;
     justify-content: center;
-    padding: 170px;
+    padding: 9vh;
     background-color: #504d4d;
 }
 
 #containerModal{
-    width: 1360px;
-    height: 900px;
+    width: 70%;
+    height: auto;
+    min-height: 85vh;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -31,21 +32,26 @@ body{
 
 .fechar{
     position: absolute;
-    width: 30px;
-    right: 60px;
-    top: 26px;
+    width: 3.0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.7vh;
+    right: 38px;
+    top: 1.5vh;
     text-align: center;
     line-height: 30px;
     margin-top: 5px;
     background: #ff4545;
     border-radius: 50%;
-    font-size: 16px;
+    font-size: clamp(1.8rem, 2vh, 5rem);
+    font-family: 'poppins';
     color: #ffff;
 }
 
 #headerVaga{
     width: 88%;
-    height: 120px;
+    height: 11vh;
     margin-top: 20px;
     display: flex;
     border-bottom: 1px solid black;
@@ -69,6 +75,8 @@ body{
 
 #tituloDeficienciaVaga{
     display: flex;
+    justify-content: space-between;
+    padding-right: 1vw;
 }
 
 #tituloVaga{
@@ -77,21 +85,22 @@ body{
 }
 
 #deficienciaVaga{
-    width: 230px;
-    height: 28px;
+    width: fit-content;
+    height: 0.5vh;
+    padding: 1.3vh;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins';
-    font-size: 18px;
-    margin: 12px 0 0 290px;
+    font-size: clamp(1.2rem, 0.1vh, 3rem);
+    margin: 1vh 0 0 0 ;
     background-color: var(--color-main);
     color: white;
 }
 
 #nomeEmpresa{
-    margin-bottom: 7px;
+    margin-bottom: 1vh;
 }
 
 
@@ -101,8 +110,8 @@ body{
 }
 
 #nomeEmpresa img{
-    width: 20px;
-    height: 20px;
+    width: 2%;
+    height: 1.8vh;
 }
 
 #nomeEmpresa p{
@@ -112,8 +121,8 @@ body{
 }
 
 #localVaga img{
-    width: 20px;
-    height: 20px;
+    width: 1.7%;
+    height: 1.8vh;
 }
 
 #localVaga p{
@@ -123,22 +132,28 @@ body{
 }
 
 #buttonsContainer{
-    width: 500px;
-    height: 50px;
-    margin: 10px 0 0 81px;
+    width: 27.5%;
+    height: 3.3vh;
+    margin: 0.5vh 0 0 7.5vh;
+    display: flex;
+    column-gap: 0.2vw;     
 }
 
 .formatacaoButton{
-    width: 130px;
-    height: 35px;
+    height: 3.2vh;
+    width: fit-content;
+    padding: .5vh;
     border-radius: 5px;
     font-family: 'Poppins';
-    font-size: 16px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 .formatacaoButton img{
-    width: 20px;
-    height: 20px;
+    width: 0.8vw;
+    height: 1.9vh;
+    margin-right: 0.2vw;
 }
 
 .active{

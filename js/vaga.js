@@ -1,10 +1,14 @@
 'use strict';
 
+const criarVaga = async() => {
+        const vaga = document.createElement('div').classList.add("")
+}
+
 const renderizarVaga = async() => {
 
 }
 
-const postCandidato =  async(vaga) => {
+const postVaga =  async(vaga) => {
     const urlCadastro = 'http://10.107.144.26:8080/vaga/cadastrar'
     const options = {
         method: 'POST',
@@ -20,7 +24,7 @@ const postCandidato =  async(vaga) => {
 
 }
 
-const getCandidato = () => {
+const getVaga = () => {
 
     const urlListar = 'http://10.107.144.26:8080/vaga/listar'
     const options = {
@@ -30,7 +34,7 @@ const getCandidato = () => {
 
 }
 
-const putProduto = async (vaga) => {
+const putVaga = async (vaga) => {
     const urlAtualizar = 'http://10.107.144.26:8080/vaga/atualizar/'
     const options = {
         method: 'PUT',
