@@ -114,18 +114,16 @@ const setId = (id) => {
 }
 
 const cadastrarDescricaoEmpresa = async() => {
-    const empresa = {
-        nome: document.getElementById('descricao').value,
+    const descricao = {
+        descricao: document.getElementById('descricao').value
     }
-    await postEmpresa(empresa)
+    await postEmpresa(descricao)
 }
 
 
 
 
-document.getElementById('btnInfoEmpresa').addEventListener('click', cadastrarEmpresa)
-
-document.getElementById('btnEnderecoEmpresa').addEventListener('click', cadastrarEnderecoEmpresa)
+document.getElementById('btnSalvar').addEventListener('click', cadastrarEmpresa)
 
 
 const postEmpresa =  async(empresa) => {
@@ -149,15 +147,34 @@ const postEmpresa =  async(empresa) => {
 
 }
 
-// const exibir = (id) => {
-//     console.log(id)
-// }
+const exibir = (id) => {
+    console.log(id)
+}
 
 const postEnderecoEmpresa =  async(endereco, id) => {
     const urlCadastro = `http://10.107.144.26:8080/empresa/cadastrar/endereco/${id}`
     const options = {
         method: 'POST',
         body:JSON.stringify(endereco),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept':'application/json',
+        }
+    }
+
+    await fetch(urlCadastro, options).then(resp => {
+        window.location.href = 'login.html'
+    }).catch(err => {
+        console.log('Ocorreu um erro ' + err)
+    })
+
+}
+
+const postDescricaoEmpresa =  async(descricao, id) => {
+    const urlCadastro = `http://10.107.144.26:8080/empresa/cadastrar/endereco/${id}`
+    const options = {
+        method: 'POST',
+        body:JSON.stringify(descricao),
         headers: {
             'Content-Type': 'application/json',
             'Accept':'application/json',
