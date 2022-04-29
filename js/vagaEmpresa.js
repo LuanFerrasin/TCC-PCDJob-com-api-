@@ -50,6 +50,7 @@ const criarOptionCurso = ({curso, id}) => {
 }
 
 const getCursos = async(id) => {
+    console.log('id cursos ', id)
     limparElementos(document.querySelector('#selectCurso'))
     const urlListar = `http://10.107.144.26:8080/curso/listar?idNivel=${id}`
     const options = {
@@ -117,7 +118,7 @@ const criarOptionTipoDeficiencia = ({tipo, id}) => {
 const criarOptionDeficiencia = ({deficiencia, id}) => {
     const container = document.getElementById("selectDeficiencia")
     const linha = document.createElement('option');
-    console.log( 'íddeficiencia ',id)
+    console.log( 'íd deficiencia ', id)
     linha.value = id
     linha.textContent = deficiencia
     container.appendChild(linha)
@@ -144,7 +145,7 @@ const getTipoDeficiencia = async() => {
 
 const getDeficiencia = async (id) => {
     limparElementos(document.getElementById('selectDeficiencia'))
-    const urlListar = `http://10.107.144.26:8080/deficiencia/listar/${id}`
+    const urlListar = `http://10.107.144.26:8080/deficiencia/listar/${1}`
     const options = {
         method: 'GET',
     }
@@ -160,7 +161,7 @@ const getDeficiencia = async (id) => {
     })
 }
 
-const getValueSect = () => {
+const getValueSect =  () => {
     var opcaoValor =  document.querySelector("#selectGrau").value;
     var opcaoText = document.querySelector("#selectGrau").text;
 
@@ -173,7 +174,6 @@ const getValueDeficiencia = () => {
     var opcaoText = document.getElementById('selectDeficiencia').text;
 
    getDeficiencia(opcaoValor)
-    console.log(opcaoValor)
 }
 
 
