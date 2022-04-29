@@ -142,7 +142,7 @@ input{
     column-gap: 45px;
 }
 
-.nome,.email,.emailRecuperacao,.telefone,.telefone2,.areaAtuacao,.CEP,.logradouro,.numero,.cidade,.estado,.complemento{
+.nome,.email,.emailRecuperacao,.telefone,.telefone2,.areaAtuacao,.CEP,.logradouro,.numero,.cidade,.bairro,.estado,.complemento{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -242,23 +242,31 @@ input{
 }
 
 .conteudoFormEndereco .numero input{
-    width: 12vw;
+    width: 18vw;
     height: 30px;
     background-color: #F5F5F5;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.conteudoFormEndereco .cidade select{
-    width: 11vw;
+.conteudoFormEndereco .cidade input{
+    width: 22vw;
     height: 30px;
     background-color: #F5F5F5;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.conteudoFormEndereco .estado select{
-    width: 14vw;
+.conteudoFormEndereco .bairro input{
+    width: 22vw;
+    height: 30px;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.conteudoFormEndereco .estado input{
+    width: 18vw;
     height: 30px;
     background-color: #F5F5F5;
     border-radius: 10px;
