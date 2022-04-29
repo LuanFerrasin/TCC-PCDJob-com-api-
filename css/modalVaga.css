@@ -54,7 +54,7 @@ body{
     height: 11vh;
     margin-top: 20px;
     display: flex;
-    border-bottom: 1px solid black;
+    border-bottom: 5px solid rgb(188, 1, 225);
     align-items: center;
     margin: 0 auto 0 auto;
 }
