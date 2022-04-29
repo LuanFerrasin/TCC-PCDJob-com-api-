@@ -100,6 +100,10 @@ input{
     padding: 10px;
 }
 
+select{
+    padding-left: 10px;
+}
+
 .menuVagas{
     height: 70px;
     width: 55.5vw;
@@ -281,7 +285,7 @@ input{
     justify-content: space-between;
 }
 
-.horario .selects select{
+.horario .selects select, .selects input{
     width: 12vw;
     height: 30px;
     background-color: #F5F5F5;
