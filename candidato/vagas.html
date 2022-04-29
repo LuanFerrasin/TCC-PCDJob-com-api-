@@ -9,10 +9,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">   
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
     <link rel="stylesheet" href="../css/vagas.css">
-    <script src="../js/vaga.js" defer></script>
+    <link rel="stylesheet" href="../css/modalVaga.css">
+    <script src="../js/vaga.js" defer type="module"></script>
     <title>Vagas</title>
 </head>
 <body>
+    <section id="containerModal">
+        <a OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">X</a>
+        <div id="headerVaga">
+            <div id="imgPreviewEmpresa">
+                <img src="" alt="">
+            </div>
+            <div id="informacoesVaga">
+                <div id="tituloDeficienciaVaga">
+                    <div id="tituloVaga">
+                        <h1>Desenvolvedor Front-End Jr.</h1>
+                    </div>
+                    <div id="deficienciaVaga">
+                        <p>Deficiencia: Motora</p>
+                    </div>
+                </div>
+                <div id="nomeEmpresa">
+                    <img src="../img/empresaIcon.svg" alt=""> <p>Nubank</p>
+                </div>
+                <div id="localVaga">
+                    <img src="../img/localIcon.svg" alt=""> <p>Carapicuiba-SP</p>
+                </div>
+            </div>
+        </div>
+        <div id="buttonsContainer">
+            <button class="formatacaoButton active"><a>Candidatar-se</a></button>
+            <button class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
+            <button class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
+        </div>
+    </section>
     <header>
         <div class="conteinerSearch">
             <div class="logo">
@@ -130,6 +160,72 @@
                     </div>
                 </div>
             </div>
+            <script>
+                const abrirModal = () => {
+                    const modal = document.getElementById('containerModal')
+                    modal.classList.add('active');
+                    
+                }
+
+                const closeModal = () => {
+                    const modal = document.getElementById('containerModal')
+                    modal.classList.remove('active');
+                    
+                }
+
+                const getVaga = async() => {
+
+                const urlListar = 'http://10.107.144.26:8080/vaga/listar'
+                const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 1))
+                return response
+
+                }
+
+                const criarVaga = ({titulo, empresa, localTrabalho, id, deficiencia}) => {
+                    const vaga = document.createElement('div')
+                    vaga.classList.add("vagas")
+                    vaga.innerHTML = `
+                            <div class="headerVagas">
+                                <div class="informacaoVaga">
+                                    <div class="imgEmpresa">
+                                        <img src="../img/logoEmpresa.png" alt="">
+                                    </div>
+                                    <div class="conteudoVaga">
+                                        <h1>${titulo}</h1>
+                                        <div class="empresaVaga">
+                                            <img src="../img/empresa.png" alt=""> 
+                                            <p>${empresa.empresa}</p> 
+                                        </div>
+                                        <div class="empresaVaga">
+                                            <img src="../img/local.png" alt=""> 
+                                            <p>${localTrabalho.cidade} - ${localTrabalho.sigla}</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="footerVagas">
+                                <div class="tipoDeficiencia">
+                                    <h2>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)}</h2>
+                                </div>
+                                <div class="botaoSaibaMais">
+                                    <button id="btnSaibaMais" data-id="${id}" onClick="abrirModal()">Saiba mais</button>
+                                </div>
+                            </div>
+                    `
+
+                    return vaga;
+                }
+
+                const carregarVaga = async() => {
+                const container = document.querySelector('.vagasConteiner')
+                const vagas = await getVaga();
+                const colunas = vagas.map(criarVaga)
+                container.replaceChildren(...colunas)
+                }
+
+                carregarVaga()
+            </script>
         </div>
     </main>
     <footer>

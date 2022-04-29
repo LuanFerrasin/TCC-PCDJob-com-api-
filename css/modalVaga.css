@@ -11,11 +11,8 @@
     --color-button-active:#1E7596;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    padding: 9vh;
-    background-color: #504d4d;
+.active{
+    display: block !important;
 }
 
 #containerModal{
@@ -25,18 +22,20 @@ body{
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    margin: 5vw 16vw;
     padding-top: 15px;
     background-color: #fefefe;
-    position: relative;
+    position: absolute;
+    display: none;
 }
 
 .fechar{
     position: absolute;
-    width: 3.0%;
+    width: 2.3%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.7vh;
+    height: 3.5vh;
     right: 38px;
     top: 1.5vh;
     text-align: center;
@@ -54,7 +53,7 @@ body{
     height: 11vh;
     margin-top: 20px;
     display: flex;
-    border-bottom: 5px solid rgb(188, 1, 225);
+    border-bottom: 1px solid rgb(0, 0, 0);
     align-items: center;
     margin: 0 auto 0 auto;
 }
@@ -82,6 +81,7 @@ body{
 #tituloVaga{
     font-size: 23px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #deficienciaVaga{
@@ -101,6 +101,7 @@ body{
 
 #nomeEmpresa{
     margin-bottom: 1vh;
+    color: black;
 }
 
 
@@ -118,6 +119,7 @@ body{
     margin-left: 3px;
     font-size: 16px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #localVaga img{
@@ -129,12 +131,13 @@ body{
     margin-left: 3px;
     font-size: 16px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #buttonsContainer{
     width: 27.5%;
     height: 3.3vh;
-    margin: 0.5vh 0 0 7.5vh;
+    margin: 0.5vh 0 0 9.2vh;
     display: flex;
     column-gap: 0.2vw;     
 }
