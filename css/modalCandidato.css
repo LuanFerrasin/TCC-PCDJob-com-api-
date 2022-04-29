@@ -206,3 +206,36 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#curriculoVaga{
+    width: fit-content;
+    height: 0.5vh;
+    padding: 1.3vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    font-size: clamp(1.2rem, 0.1vh, 3rem);
+    margin: 1vh 0 0 0 ;
+    background-color: #1E7596;
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Poppins';
+}
+#iniciarConversa{
+    width: fit-content;
+    height: 0.5vh;
+    padding: 1.3vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    font-size: clamp(1.2rem, 0.1vh, 3rem);
+    margin: 1vh 0 0 0 ;
+    background-color: #1E7596;
+    color: white;
+    font-size: 1.3rem;
+    font-family: 'Poppins';
+    margin-left: 70%;
+}
