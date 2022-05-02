@@ -8,14 +8,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">   
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
-    <link rel="stylesheet" href="../css/vagas.css">
     <link rel="stylesheet" href="../css/modalVaga.css">
+    <link rel="stylesheet" href="../css/vagas.css">
     <script src="../js/vaga.js" defer type="module"></script>
     <title>Vagas</title>
 </head>
 <body>
     <section id="containerModal">
-        <a OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">X</a>
+        <span OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">
+            <img src="../img/close-modal-icon.png" alt="close-modal">
+        </span>
         <div id="headerVaga">
             <div id="imgPreviewEmpresa">
                 <img src="" alt="">
@@ -41,6 +43,57 @@
             <button class="formatacaoButton active"><a>Candidatar-se</a></button>
             <button class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
             <button class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
+        </div>
+        <div id="containerDescricao">
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Requisitos</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Horários</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Tipo de Trabalho</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1></h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Informações</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="footerModal">
+            <img src="" alt="">
+            <a href="">Visite nosso perfil.</a>
         </div>
     </section>
     <header>
@@ -155,15 +208,19 @@
                     <div class="tipoDeficiencia">
                         <h2>Deficiencia: Visual</h2>
                     </div>
-                    <div class="botaoSaibaMais">
+                    <div class="botaoSaibaMais" onClick="">
                         <button>Saiba mais</button>
                     </div>
                 </div>
             </div>
             <script>
-                const abrirModal = () => {
+                const abrirModal = (id) => {
+                    
+                    const urlListar = `http://10.107.144.26:8080/vaga/listar/${id}`
+                    const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content)
                     const modal = document.getElementById('containerModal')
                     modal.classList.add('active');
+
                     
                 }
 
@@ -176,7 +233,7 @@
                 const getVaga = async() => {
 
                 const urlListar = 'http://10.107.144.26:8080/vaga/listar'
-                const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 1))
+                const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 0))
                 return response
 
                 }
@@ -209,7 +266,7 @@
                                     <h2>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)}</h2>
                                 </div>
                                 <div class="botaoSaibaMais">
-                                    <button id="btnSaibaMais" data-id="${id}" onClick="abrirModal()">Saiba mais</button>
+                                    <button id="btnSaibaMais" onClick="abrirModal(${id})">Saiba mais</button>
                                 </div>
                             </div>
                     `
