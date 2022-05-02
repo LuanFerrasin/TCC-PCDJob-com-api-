@@ -97,15 +97,15 @@ div.single-input .input:valid ~ label{
     transform: translateY(-24px);
     font-size: 12px;
 }
-.btn-google{
+#buttonDiv{
     height: 45px;
     width: 45px;
-    background-image: url(../img/google.png);
     background-repeat: no-repeat;
     background-size: auto;
     display: flex;
-    margin-left:44%;
-    margin-bottom: 5% ;
+    margin-left:18%;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border: none;
     cursor: pointer;
     box-shadow: #000 (1,2);

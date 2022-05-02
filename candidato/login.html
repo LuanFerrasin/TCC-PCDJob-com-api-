@@ -13,6 +13,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script>
+        function handleCredentialResponse(response) {}
+
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "1053180956467-ik0a5dov8bsgn29d8te3f8liteudbq81.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" }  // customization attributes
+          );
+          
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+    </script>
     
     <title>Login</title>
 </head>
@@ -45,7 +64,7 @@
                     </div>
                     <a href="./esqueciSenha.html">Esqueci a Senha</a> 
                     <p>Entre com outra conta.</p>
-                <input  class="btn-google" type="submit" value="">
+                <div id="buttonDiv"></div>
                 <input  id="btnEntrar"  type="button" value="Entrar">
                 <p>Ainda possui uma conta?</p>
                 <div class="possui-conta">
