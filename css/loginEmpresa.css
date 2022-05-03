@@ -6,8 +6,9 @@
 body{
     background-image: url(../img/waves.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover  ;
     height: 100vh;
+    overflow-y: hidden;
     
 }
 header{
@@ -15,100 +16,57 @@ header{
     height: 20%;
 }
 .container-logo{
-    width: 150px;
-    height:150px;
+    width: 200px;
+    height:200px;
     display: flex;
     justify-content: center;
     margin:  auto;
-    margin-top:10px;
+    margin-top:90px;
 }
-#container-titulo{
-    width: auto;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-} 
-h3{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin: 0;
-    margin-top: 20px;
-    font-family:'Poppins', sans-serif;
-
-}
-p{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin: 0;
-    margin-top: 20px;
-    font-family:'Roboto', sans-serif;
-
-}
-h1{
-    font-size:3rem;
-    color: #225E77;
-    font-family:'Roboto', sans-serif;
-}
-h2{
-    font-size:2rem;
-    color: #225E77;
-    font-family:'Roboto', sans-serif;
-}
-#desc-header{
-    width: auto;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin-top: -100px;
-    font-size: 2rem;
-} 
 .logo-site {
+    margin-top: -40px;
     width: 160px;
     height: 160px;
-    display: flex;
 }
 main{
     width: auto;
     height:50%;
 }
-.area-cadastro{
+.area-login{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    margin-top: -150px;
+    margin-top: -10%;
 }
-.cadastro{
+.login{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #F7F5F5;
     border-radius: 10px;
     width: 500px;
-    height: 630px;
+    height: 550px;
     padding: 35px;
 }
-.cadastro form{
+.login form{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.cadastro h4{
+.login h1{
+    margin-left: 40%;
+    width: 65px;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+}
+.login h2{
     padding-top: 10px;
     height: auto;
     font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
-    font-size: 2rem;
 }
 div.single-input{
     width: 100%;
@@ -139,7 +97,20 @@ div.single-input .input:valid ~ label{
     transform: translateY(-24px);
     font-size: 12px;
 }
-#btnCadastro{
+#buttonDiv{
+    height: 45px;
+    width: 45px;
+    background-repeat: no-repeat;
+    background-size: auto;
+    display: flex;
+    margin-left:18%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: #000 (1,2);
+}
+#btnEntrar{
     height: 50px;
     display: block;
     background-color: #225E77;
@@ -149,10 +120,10 @@ div.single-input .input:valid ~ label{
     border-radius:5px;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 5%;
 }
-#btn-entrar{
-    margin-top: 20px;
+#btn-cadastrar{
+    margin-top: 10px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -171,4 +142,66 @@ div.single-input .input:valid ~ label{
     align-items: center;
     justify-content: center;
 }
-
+@media (max-width:1000px){
+    .area-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 70px;
+    }
+}
+@media (max-width:375px){
+    .area-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90px;
+    }
+}
+@media (max-width:375px){
+    .logo-site {
+        width: 160px;
+        height: 160px;
+    }
+}
+@media (max-width:375px){
+    .login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #F7F5F5;
+        border-radius: 10px;
+        width: 400px;
+        height: 580px;
+        padding: 35px;
+    }
+}
+@media (max-width:375px){
+    body{
+        background-image: url(../img/waves.png);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+}
+a{
+    color: #225E77;
+    text-decoration: none;
+    margin-left: 300px;
+    margin-top: 10px;
+    font-family:'Roboto', sans-serif;
+}
+p{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    margin-top: 20px;
+    font-family:'Roboto', sans-serif;
+}

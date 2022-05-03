@@ -95,7 +95,7 @@ main{
     background-color: #F7F5F5;
     border-radius: 10px;
     width: 500px;
-    height: 750px;
+    height: 630px;
     padding: 35px;
 }
 .cadastro form{
@@ -153,6 +153,7 @@ div.single-input .input:valid ~ label{
     box-shadow: #000 (1,2);
 }
 #btnCadastro{
+    margin-top: 15px;
     height: 50px;
     display: block;
     background-color: #225E77;
