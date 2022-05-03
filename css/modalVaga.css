@@ -17,7 +17,7 @@
 
 #containerModal{
     width: 70%;
-    height: 75vh;
+    height: 70vh;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -60,8 +60,8 @@
 }
 
 #imgPreviewEmpresa{
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     margin: 0 15px 0 10px;
     border-radius: 5px;
     background-color: burlywood;
@@ -138,7 +138,7 @@
 #buttonsContainer{
     width: 27.5%;
     height: 3.3vh;
-    margin: 0.5vh 0 0 9.2vh;
+    margin: 0.5vh 0 0 4.2vw;
     display: flex;
     column-gap: 0.2vw;     
 }
@@ -189,8 +189,8 @@
 
 .formatacaoTitulo{
     font-family: 'Poppins';
-    font-size: 18px;
-    color: #6D6D6D;
+    font-size: 1.3rem;
+    color: #3d3d3d;
 }
 
 .tituloContainer{
@@ -198,7 +198,7 @@
 }
 
 .textoContainer{
-    width: 50px;
+    width: 50%;
     height: auto;
     min-height: 20px;
     margin-left: 26px;
@@ -210,7 +210,7 @@
 
 .formatacaoTexto{
     font-family: 'Poppins';
-    font-size: 16px;
+    font-size: 1.3rem;
     color: #6D6D6D;
 }
 
