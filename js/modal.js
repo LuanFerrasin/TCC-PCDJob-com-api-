@@ -1,12 +1,22 @@
 'use strict';
 
+var url_string = window.location.href;
+var url = new URL(url_string);
+var idCandidato = url.searchParams.get("id");
+
+
 const abrirModal =  async(id) => {
     let idVaga = id
  
+    console.log(idCandidato, idVaga);
+
     const urlBuscar = `http://10.107.144.26:8080/vaga/buscar/${idVaga}`
     const response = await fetch(urlBuscar).then(resp => resp.json()).then(dados => dados)
+
+    console.log(response);
     
     const criarModal = ({titulo, empresa, formacaoDesejada, deficiencia, horario, localTrabalho, salario, tipoContrato, beneficio}) => {
+
         const modal = document.createElement('div')
         modal.innerHTML=`
             <span OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">
@@ -34,9 +44,9 @@ const abrirModal =  async(id) => {
                 </div>
             </div>
             <div id="buttonsContainer">
-                <button id='btnCandidata' class="formatacaoButton active"><a>Candidatar-se</a></button>
-                <button id='btnSalva' class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
-                <button id='btnDispensa' class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
+                <button id='btnCandidata' onClick='candidatar(${idVaga}, ${idCandidato}, 1)' class="formatacaoButton active"><a>Candidatar-se</a></button>
+                <button id='btnSalva' onClick='candidatar(${idVaga}, ${idCandidato}, 2) 'class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
+                <button id='btnDispensa' onClick='candidatar(${idVaga}, ${idCandidato}, 3) 'class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
             </div>
             <div id="containerDescricao">
                 <div class="topicoContainer">            
@@ -107,6 +117,39 @@ const abrirModal =  async(id) => {
 
     const modal = document.getElementById('containerModal')
     modal.classList.add('active');
+}
+
+const candidatar = async(idVaga, idCandidato, idStatus) => {
+
+    const urlAcoes = `http://10.107.144.26:8080/vaga/candidatar?idVaga=${idVaga}&idStatus=${idStatus}&idCandidato=${idCandidato}`
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept':'application/json',
+        }
+    }
+    await fetch(urlAcoes, options).then(resp => resp.json()).then(json => {
+
+        if(idStatus == 1){
+
+            closeModal()
+            alert('VAGA CANDIDATADA')
+
+        }if (idStatus == 2) {
+            
+            closeModal()
+            alert('VAGA SALVA')
+
+        } else {
+            
+            closeModal()
+            alert('VAGA DISPENSADA')
+        }
+    }).catch(() => {
+        alert('Houve algum problema ao interagir com a vaga.')
+    })
+
 }
 
 const closeModal = () => {
