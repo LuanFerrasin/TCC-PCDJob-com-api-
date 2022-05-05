@@ -11,42 +11,42 @@
     --color-button-active:#1E7596;
 }
 
-body{
-    display: flex;
-    justify-content: center;
-    padding: 9vh;
-    background-color: #504d4d;
+.active{
+    display: block !important;
 }
 
 #containerModal{
     width: 70%;
-    height: auto;
-    min-height: 85vh;
+    height: 950px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    margin: 5vw 16vw;
     padding-top: 15px;
     background-color: #fefefe;
-    position: relative;
+    position: absolute;
+    display: none;
 }
 
 .fechar{
     position: absolute;
-    width: 3.0%;
+    width: 2.3%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.7vh;
+    height: 3.5vh;
     right: 38px;
     top: 1.5vh;
     text-align: center;
     line-height: 30px;
     margin-top: 5px;
-    background: #ff4545;
     border-radius: 50%;
-    font-size: clamp(1.8rem, 2vh, 5rem);
-    font-family: 'poppins';
-    color: #ffff;
+    cursor: pointer;
+}
+
+.fechar img{
+    width: 40px;
+    height: 40px;
 }
 
 #headerVaga{
@@ -54,14 +54,14 @@ body{
     height: 11vh;
     margin-top: 20px;
     display: flex;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(0, 0, 0);
     align-items: center;
     margin: 0 auto 0 auto;
 }
 
 #imgPreviewEmpresa{
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     margin: 0 15px 0 10px;
     border-radius: 5px;
     background-color: burlywood;
@@ -82,6 +82,7 @@ body{
 #tituloVaga{
     font-size: 23px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #deficienciaVaga{
@@ -101,6 +102,7 @@ body{
 
 #nomeEmpresa{
     margin-bottom: 1vh;
+    color: black;
 }
 
 
@@ -118,6 +120,7 @@ body{
     margin-left: 3px;
     font-size: 16px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #localVaga img{
@@ -129,12 +132,13 @@ body{
     margin-left: 3px;
     font-size: 16px;
     font-family: 'Poppins';
+    color: black;
 }
 
 #buttonsContainer{
     width: 27.5%;
     height: 3.3vh;
-    margin: 0.5vh 0 0 7.5vh;
+    margin: 0.5vh 0 0 4.2vw;
     display: flex;
     column-gap: 0.2vw;     
 }
@@ -148,6 +152,7 @@ body{
     font-size: 1.1rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .formatacaoButton img{
@@ -164,4 +169,71 @@ body{
 .activeSec{
     color: white;
     background-color: #6D6D6D;
+}
+
+#containerDescricao{
+    width: 88%;
+    height: 640px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0 auto 0 auto;
+    border-bottom: solid 1px black;
+}
+
+.topicoContainer{
+    min-width: 100px;
+    width: auto;
+    height: auto;
+    min-height: 100px;
+    margin-bottom: 30px;
+}
+
+.formatacaoTitulo{
+    font-family: 'Poppins';
+    font-size: 1.3rem;
+    color: #3d3d3d;
+}
+
+.tituloContainer{
+    display: flex;
+}
+
+.textoContainer{
+    width: 50%;
+    height: auto;
+    min-height: 20px;
+    margin-left: 26px;
+}
+
+.tituloContainer img{
+    margin-right: 3px;
+}
+
+.formatacaoTexto{
+    font-family: 'Poppins';
+    font-size: 1.3rem;
+    color: #6D6D6D;
+}
+
+#footerModal{
+    width: 88%;
+    height: 50px;
+    margin: 1vh auto 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+#footerModal img{
+    width: 55px;
+    height: 55px;
+    border-radius: 45px;
+    background-color: blanchedalmond;
+}
+
+#footerModal a{
+    margin-left: 10px;
+    font-size: 1.3rem;
+    text-decoration-line: underline;
+    color: #329DD9;
+    font-family: 'Poppins';
 }

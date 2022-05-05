@@ -8,10 +8,95 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">   
     <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+    <link rel="stylesheet" href="../css/modalVaga.css">
     <link rel="stylesheet" href="../css/vagas.css">
+    <script src="../js/modal.js" defer></script>
+    <script src="../js/vaga.js" defer type="module"></script>
     <title>Vagas</title>
 </head>
 <body>
+    <section id="containerModal">
+        <span OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">
+            <img src="../img/close-modal-icon.png" alt="close-modal">
+        </span>
+        <div id="headerVaga">
+            <div id="imgPreviewEmpresa">
+                <img src="" alt="">
+            </div>
+            <div id="informacoesVaga">
+                <div id="tituloDeficienciaVaga">
+                    <div id="tituloVaga">
+                        <h1>Desenvolvedor Front-End Jr.</h1>
+                    </div>
+                    <div id="deficienciaVaga">
+                        <p>Deficiencia: Motora</p>
+                    </div>
+                </div>
+                <div id="nomeEmpresa">
+                    <img src="../img/empresaIcon.svg" alt=""> <p>Nubank</p>
+                </div>
+                <div id="localVaga">
+                    <img src="../img/localIcon.svg" alt=""> <p>Carapicuiba-SP</p>
+                </div>
+            </div>
+        </div>
+        <div id="buttonsContainer">
+            <button class="formatacaoButton active"><a>Candidatar-se</a></button>
+            <button class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
+            <button class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
+        </div>
+        <div id="containerDescricao">
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Requisitos</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Horários</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Tipo de Trabalho</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1></h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Informações</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="footerModal">
+            <img src="" alt="">
+            <a href="">Visite nosso perfil.</a>
+        </div>
+    </section>
     <header>
         <div class="conteinerSearch">
             <div class="logo">
@@ -124,113 +209,14 @@
                     <div class="tipoDeficiencia">
                         <h2>Deficiencia: Visual</h2>
                     </div>
-                    <div class="botaoSaibaMais">
+                    <div class="botaoSaibaMais" onClick="">
                         <button>Saiba mais</button>
                     </div>
                 </div>
             </div>
-            <div class="vagas">
-                <div class="headerVagas">
-                    <div class="informacaoVaga">
-                        <div class="imgEmpresa">
-                            <img src="../img/logoEmpresa.png" alt="">
-                        </div>
-                        <div class="conteudoVaga">
-                            <h1>Desenvolvedor Web</h1>
-                            <div class="empresaVaga">
-                                <img src="../img/empresa.png" alt=""> 
-                                <p>Nubank</p> 
-                            </div>
-                            <div class="empresaVaga">
-                                <img src="../img/local.png" alt=""> 
-                                <p>Alphavile - SP</p> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="salvarVaga">
-                        <button>
-                            <img src="../img/salvar.png" alt=""> 
-                            <p>Salvar</p>
-                        </button> 
-                    </div>
-                </div>
-                <div class="footerVagas">
-                    <div class="tipoDeficiencia">
-                        <h2>Deficiencia: Visual</h2>
-                    </div>
-                    <div class="botaoSaibaMais">
-                        <button>Saiba mais</button>
-                    </div>
-                </div>
-            </div>
-            <div class="vagas">
-                <div class="headerVagas">
-                    <div class="informacaoVaga">
-                        <div class="imgEmpresa">
-                            <img src="../img/logoEmpresa.png" alt="">
-                        </div>
-                        <div class="conteudoVaga">
-                            <h1>Desenvolvedor Web</h1>
-                            <div class="empresaVaga">
-                                <img src="../img/empresa.png" alt=""> 
-                                <p>Nubank</p> 
-                            </div>
-                            <div class="empresaVaga">
-                                <img src="../img/local.png" alt=""> 
-                                <p>Alphavile - SP</p> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="salvarVaga">
-                        <button>
-                            <img src="../img/salvar.png" alt=""> 
-                            <p>Salvar</p>
-                        </button> 
-                    </div>
-                </div>
-                <div class="footerVagas">
-                    <div class="tipoDeficiencia">
-                        <h2>Deficiencia: Visual</h2>
-                    </div>
-                    <div class="botaoSaibaMais">
-                        <button>Saiba mais</button>
-                    </div>
-                </div>
-            </div>
-            <div class="vagas">
-                <div class="headerVagas">
-                    <div class="informacaoVaga">
-                        <div class="imgEmpresa">
-                            <img src="../img/logoEmpresa.png" alt="">
-                        </div>
-                        <div class="conteudoVaga">
-                            <h1>Desenvolvedor Web</h1>
-                            <div class="empresaVaga">
-                                <img src="../img/empresa.png" alt=""> 
-                                <p>Nubank</p> 
-                            </div>
-                            <div class="empresaVaga">
-                                <img src="../img/local.png" alt=""> 
-                                <p>Alphavile - SP</p> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="salvarVaga">
-                        <button>
-                            <img src="../img/salvar.png" alt=""> 
-                            <p>Salvar</p>
-                        </button> 
-                    </div>
-                </div>
-                <div class="footerVagas">
-                    <div class="tipoDeficiencia">
-                        <h2>Deficiencia: Visual</h2>
-                    </div>
-                    <div class="botaoSaibaMais">
-                        <button>Saiba mais</button>
-                    </div>
-                </div>
-            </div>
+            <script>
+                
+           </script>
         </div>
     </main>
     <footer>
