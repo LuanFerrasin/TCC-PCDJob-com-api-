@@ -4,7 +4,7 @@
     const getVaga = async() => {
 
     const urlListar = 'http://10.107.144.26:8080/vaga/listar'
-    const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 0))
+    const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 1))
     return response
 
     }

@@ -168,18 +168,18 @@ const abrirModal = async (id) => {
     const modal = document.getElementById('containerModal')
     // modal.classList.add('active');
     modal.style.display = 'block';
-    modal.body.style.overflow = 'hidden';
 }
 
 const closeModal = () => {
     const modal = document.getElementById('containerModal')
     // modal.classList.remove('active');
     modal.style.display = 'none';
-    modal.body.style.overflow = 'auto';
     
-  }
+}
 
 const candidatar = async (idVaga, idCandidato, idStatus) => {
+
+    console.log(idVaga, idCandidato, idStatus);
 
     const urlAcoes = `http://10.107.144.26:8080/vaga/candidatar?idVaga=${idVaga}&idStatus=${idStatus}&idCandidato=${idCandidato}`
     console.log(urlAcoes);
@@ -190,40 +190,28 @@ const candidatar = async (idVaga, idCandidato, idStatus) => {
             'Accept': 'application/json',
         }
     }
-    await fetch(urlAcoes, options).then(resp => resp.json()).then(json => {
-        console.log(json)
-        const status = json.idStatus
-        switch(status) {
-            case 1:
-                closeModal()
-                alert('VAGA SALVA')
-            case 2:
-                closeModal()
-                alert('VAGA DISPENSADA')
-            case 3:
-                closeModal()
-                alert('VAGA DISPENSADA')
-            
-        }
-        // if (idStatus == 1) {
-
-        //     
-
-        // }
-        // if (idStatus == 2) {
-
-        //     closeModal()
-        //     alert('VAGA SALVA')
-
-        // } else {
-
-        //     closeModal()
-        //     alert('VAGA DISPENSADA')
-        // }
-    }).catch(() => {
-        alert('Houve algum problema ao interagir com a vaga.')
+    await fetch(urlAcoes, options).then(resp => resp.json()).then(json =>  {retornarStatus(json.idStatus)}
+    ).catch((err) => {
+        console.log(err);
     })
 
+}
+
+const retornarStatus = (idStatus) =>{
+    switch (idStatus) {
+        case 1:
+            alert('feito com sucesso')
+            closeModal()
+            break;
+        case 2:
+            alert('feito com sucesso')
+            break;
+        case 3:
+            alert('feito com sucesso')
+            break;            
+    
+       
+    }
 }
 
 // const closeModal = () => {
