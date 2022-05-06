@@ -11,7 +11,7 @@ const validacao = ({nome, email, senha}) => {
 
 } 
 
-const cadastrarEmpresa = async() => {
+const cadastrarCandidato = async() => {
     const candidato = {
         nome: document.getElementById('nome').value,
         email: document.getElementById('email').value,
@@ -19,15 +19,11 @@ const cadastrarEmpresa = async() => {
         genero: "PREFIRO_NAO_INFORMAR"
     }
 
-    if(validacao(candidato)) {
         await postCandidato(candidato).then(resp => id)
         
-    } else {
-        alert("preencha os campos vazios")
-    }
 }
 
-document.getElementById('btnCadastro').addEventListener('click', cadastrarEmpresa)
+document.getElementById('btnCadastro').addEventListener('click', cadastrarCandidato)
 
 
 const postCandidato =  async(candidato) => {
@@ -81,4 +77,8 @@ const deleteProduto = async (candidato) => {
     await fetch(`${urldeletar}${candidato.id}`, options)
 }
 
+function voltarLogin(){
+    window.location.href= "../candidato/login.html";
+}
 
+document.getElementById("btn-entrar").addEventListener("click", voltarLogin)
