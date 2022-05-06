@@ -16,35 +16,6 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <title>Login</title>
-
-    <script>
-        function handleCredentialResponse(response) {
-
-            const data = jwt_decode (response.credential)
-            console.log(data)
-
-        }
-
-        window.onload = function () {
-          google.accounts.id.initialize({
-            client_id: "1053180956467-ik0a5dov8bsgn29d8te3f8liteudbq81.apps.googleusercontent.com",
-            callback: handleCredentialResponse
-          });
-
-          google.accounts.id.renderButton(
-            document.getElementById("buttonDiv"),
-            { theme: "outline", 
-              size: "large",
-              type:"standard",
-              shape:"pill",
-              text:"$ {button.text}",
-              locale:"pt-BR",}  // customization attributes
-          );
-          
-          google.accounts.id.prompt(); // also display the One Tap dialog
-        }
-    </script>
-
 </head>
 <body>
     <header>
@@ -61,11 +32,6 @@
                 </div>
                 <form>
                     <div class="single-input">
-                        
-                        <input  type="text" name="" id="nome" class="input" required>
-                        <label for="nome">Nome</label>
-                    </div>
-                    <div class="single-input">
                         <input type="email" name="" id="email" class="input" required>
                         <label for="email">E-mail</label>
                     </div>
@@ -74,8 +40,6 @@
                         <label for="senha">Senha</label>
                     </div>
                     <a href="./esqueciSenha.html">Esqueci a Senha</a> 
-                    <p>Entre com outra conta.</p>
-                <div id="buttonDiv"></div>
                 <input  id="btnEntrar"  type="button" value="Entrar">
                 <p>Ainda possui uma conta?</p>
                 <div class="possui-conta">

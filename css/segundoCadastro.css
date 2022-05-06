@@ -95,7 +95,7 @@ main{
     background-color: #F7F5F5;
     border-radius: 10px;
     width: 500px;
-    height: 630px;
+    height: 670px;
     padding: 35px;
 }
 .cadastro form{
@@ -170,5 +170,11 @@ div.single-input .input:valid ~ label{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+a{
+    text-decoration: none;
+    margin-left: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #225E77;;
 }
 
