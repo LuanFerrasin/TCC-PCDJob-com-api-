@@ -21,10 +21,20 @@ header{
     display: flex;
     justify-content: center;
     margin:  auto;
-    margin-top:90px;
+    margin-top:40px;
 }
+#desc-header{
+    width: auto;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: -100px;
+    font-size: 2rem;
+} 
 .logo-site {
-    margin-top: -40px;
+    margin-top: -30px;
     width: 160px;
     height: 160px;
 }
@@ -32,6 +42,36 @@ main{
     width: auto;
     height:50%;
 }
+h3{
+    font-size:3rem;
+    color: #225E77;
+    font-family:'Roboto', sans-serif;
+}
+h4{
+    font-size:2rem;
+    color: #225E77;
+    font-family:'Roboto', sans-serif;
+}
+h5{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    margin-top: 20px;
+    font-family:'Poppins', sans-serif;
+    font-size: 2.2rem;
+
+}
+#container-titulo{
+    width: auto;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: -3%;
+} 
 .area-login{
     display: flex;
     justify-content: center;
