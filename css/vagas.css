@@ -309,10 +309,11 @@ main{
     align-items: center;
     justify-content: center;
     height: 35px;
-    width: 10vw;
+    width: fit-content;
     border-radius: 10px;
     background-color: #2795D2;
     margin-top: 25px;
+    padding: 5px 20px 5px 20px;;
 }
 
 .vagasConteiner .vagas .footerVagas .tipoDeficiencia h2{

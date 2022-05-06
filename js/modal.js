@@ -5,156 +5,229 @@ var url = new URL(url_string);
 var idCandidato = url.searchParams.get("id");
 
 
-const abrirModal =  async(id) => {
+const abrirModal = async (id) => {
     let idVaga = id
- 
-    console.log(idCandidato, idVaga);
+
+    console.log(idCandidato);
 
     const urlBuscar = `http://10.107.144.26:8080/vaga/buscar/${idVaga}`
     const response = await fetch(urlBuscar).then(resp => resp.json()).then(dados => dados)
 
     console.log(response);
-    
-    const criarModal = ({titulo, empresa, formacaoDesejada, deficiencia, horario, localTrabalho, salario, tipoContrato, beneficio}) => {
+
+    const criarModal = ({
+        titulo,
+        empresa,
+        formacaoDesejada,
+        deficiencia,
+        horario,
+        localTrabalho,
+        salario,
+        tipoContrato,
+        beneficio,
+        descricao,
+        requisitos
+    }) => {
+
+        let imagemVaga = 'https://images.vexels.com/media/users/3/144883/isolated/preview/09a503901819e475a3c352ddd3e528b3-curso-de-construcao-de-empresa.png' ?? imagem
+        let tituloVaga = titulo ?? 'Titulo não informado'
+        let deficienciaVaga = deficiencia ? deficiencia.map(item =>  item.tipoDeficiencia) : 'Deficiencia não informada'
+        let enderecoVaga = localTrabalho ? (localTrabalho.bairro + ' - '+ localTrabalho.sigla) : 'Endereço não informado'
+        let formacao = formacaoDesejada ? formacaoDesejada.map(item =>  `<p>Área de atuação:  ${item.areaAtuacao} Curso: ${item.curso} </p>` )  : 'Não informado'
+        let nomeEmpresa = empresa ? empresa.empresa : 'Nome da empresa não informado' 
+        let horarioInicio = horario ? horario.horarioInicio + ' - ' : ''
+        let horarioFinal = horario ? horario.horarioFinal : ''
+        let contratoVaga = tipoContrato ? tipoContrato.tpoContrato :  'Não informado'
+        let descricaoVaga = descricao ? descricao :  'Não informado'
+        let requisitosVaga = requisitos ? requisitos :  'Não informado'
+        let beneficioVaga = beneficio ? beneficio.map(item =>  `<p>${item.beneficio}</p>` )  : 'Não informado'
+       // let suporteVaga = suporte ? suporte.map(item =>  `<p>${item.suporte}</p>` )  : 'Não informado'
+       let salarioVaga = salario ? salario.salario : 'Não informado'
 
         const modal = document.createElement('div')
-        modal.innerHTML=`
-            <span OnClick="closeModal()" href="#fechar" title="Fechar" class="fechar">
-                <img src="../img/close-modal-icon.png" alt="close-modal">
-            </span>
-            <div id="headerVaga">
-                <div id="imgPreviewEmpresa">
-                    <img src="" alt="">
+        modal.innerHTML = `
+        <div OnClick="closeModal()" href="#fechar" title="Fechar" class='divFechar'>
+        <span class="fechar">
+            <img class='imgFechar' src="https://icones.pro/wp-content/uploads/2021/08/icone-x-avec-cercle-rouge.png" alt="">
+        </span>
+        </div>
+        <div id="headerVaga">
+            <div id="imgPreviewEmpresa">
+                <img  class='imgFechar' src="${imagemVaga}" alt="">
+            </div>
+            <div id="informacoesVaga">
+                <div id="tituloDeficienciaVaga">
+                    <div id="tituloVaga">
+                        <h1>${tituloVaga}</h1> 
+                    </div>
+                    <div id="deficienciaVaga">
+                        <p>Deficiência: ${deficienciaVaga}</p>
+                    </div>
                 </div>
-                <div id="informacoesVaga">
-                    <div id="tituloDeficienciaVaga">
-                        <div id="tituloVaga">
-                            <h1>${titulo}</h1>
-                        </div>
-                        <div id="deficienciaVaga">
-                            <p>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)}</p>
-                        </div>
-                    </div>
-                    <div id="nomeEmpresa">
-                        <img src="../img/empresaIcon.svg" alt=""> <p>${empresa.empresa}</p>
-                    </div>
-                    <div id="localVaga">
-                        <img src="../img/localIcon.svg" alt=""> <p>${localTrabalho.cidade}-${localTrabalho.sigla}</p>
-                    </div>
+                <div id="nomeEmpresa">
+                    <img  class="imgFechar" src="../img/empresaIcon.svg" alt=""> <p>${nomeEmpresa}</p>
+                </div>
+                <div id="localVaga">
+                    <img class="imgFechar" src="../img/localIcon.svg" alt="" > <p>${enderecoVaga}</p>
                 </div>
             </div>
-            <div id="buttonsContainer">
-                <button id='btnCandidata' onClick='candidatar(${idVaga}, ${idCandidato}, 1)' class="formatacaoButton active"><a>Candidatar-se</a></button>
-                <button id='btnSalva' onClick='candidatar(${idVaga}, ${idCandidato}, 2) 'class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
-                <button id='btnDispensa' onClick='candidatar(${idVaga}, ${idCandidato}, 3) 'class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
-            </div>
-            <div id="containerDescricao">
-                <div class="topicoContainer">            
-                    <div class="tituloContainer formatacaoTitulo">
-                        <img src="../img/topicoIcon.svg" alt=""><h1>Area de atuação</h1>
-                    </div>
-                    <div class="textoContainer formatacaoTexto">
-                        <p>
-                            ${formacaoDesejada.map(item => item.areaAtuacao)}
-                        </p>
-                    </div>
+        </div>
+       
+        <div id="buttonsContainer">
+            <button id='btnCandidata' onclick='candidatar(${idVaga}, ${idCandidato}, 1)' class="formatacaoButton active"><a>Candidatar-se</a></button>
+            <button id='btnSalva' onclick='candidatar(${idVaga}, ${idCandidato}, 2)' class="formatacaoButton activeSec"><img src="../img/saveIcon.svg" alt=""><a>Salvar</a></button>
+            <button id='btnDispensa' onclick='candidatar(${idVaga}, ${idCandidato}, 3)' class="formatacaoButton activeSec"><img src="../img/dispensarIcon.svg" alt=""><a> Dispensar</a></button>
+        </div>
+        <div id="containerDescricao">
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Formações Acadêmicas</h1>
                 </div>
-                <div class="topicoContainer">            
-                    <div class="tituloContainer formatacaoTitulo">
-                        <img src="../img/topicoIcon.svg" alt=""><h1>Horários</h1>
-                    </div>
-                    <div class="textoContainer formatacaoTexto">
-                        <p>
-                            ${horario.horarioInicio} - ${horario.horarioFinal}
-                        </p>
-                    </div>
-                </div>
-                <div class="topicoContainer">            
-                    <div class="tituloContainer formatacaoTitulo">
-                        <img src="../img/topicoIcon.svg" alt=""><h1>Tipo de Contrato</h1>
-                    </div>
-                    <div class="textoContainer formatacaoTexto">
-                        <p>
-                            ${tipoContrato.tpoContrato}
-                        </p>
-                    </div>
-                </div>
-                <div class="topicoContainer">            
-                    <div class="tituloContainer formatacaoTitulo">
-                        <img src="../img/topicoIcon.svg" alt=""><h1></h1>
-                    </div>
-                    <div class="textoContainer formatacaoTexto">
-                        <p>
-                        </p>
-                    </div>
-                </div>
-                <div class="topicoContainer">            
-                    <div class="tituloContainer formatacaoTitulo">
-                        <img src="../img/topicoIcon.svg" alt=""><h1>Informações</h1>
-                    </div>
-                    <div class="textoContainer formatacaoTexto">
-                        <p>
-                        </p>
-                    </div>
+                <div class="textoContainer formatacaoTexto">
+                 
+                    ${formacao}
+                   
                 </div>
             </div>
-            <div id="footerModal">
-                <img src="" alt="">
-                <a href="">Visite nosso perfil.</a>
+            <div class="topicoContainer">            
+            <div class="tituloContainer formatacaoTitulo">
+                <img src="../img/topicoIcon.svg" alt=""><h1>Descrição</h1>
             </div>
+            <div class="textoContainer formatacaoTexto">
+                <p>
+         ${descricaoVaga}
+                </p>
+            </div>
+        </div>
+           
+            <div class="topicoContainer">            
+            <div class="tituloContainer formatacaoTitulo">
+                <img src="../img/topicoIcon.svg" alt=""><h1>Requisitos</h1>
+            </div>
+            <div class="textoContainer formatacaoTexto">
+                <p>${requisitosVaga} </p>
+            </div>
+            <div class="topicoContainer">            
+            <div class="tituloContainer formatacaoTitulo">
+                <img src="../img/topicoIcon.svg" alt=""><h1>Horários</h1>
+            </div>
+            <div class="textoContainer formatacaoTexto">
+                <p>
+          ${horarioInicio} ${horarioFinal}
+                </p>
+            </div>
+        </div>
+        </div>
+        <div class="topicoContainer">            
+        <div class="tituloContainer formatacaoTitulo">
+            <img src="../img/topicoIcon.svg" alt=""><h1>Salário</h1>
+        </div>
+        <div class="textoContainer formatacaoTexto">
+            <p>
+            ${salarioVaga}
+              </p>
+        </div>
+        </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Tipo de Contrato</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    <p>
+                    ${contratoVaga}
+                      </p>
+                </div>
+            </div>
+            <div class="topicoContainer">            
+                <div class="tituloContainer formatacaoTitulo">
+                    <img src="../img/topicoIcon.svg" alt=""><h1>Benefícios</h1>
+                </div>
+                <div class="textoContainer formatacaoTexto">
+                    ${beneficioVaga}
+                </div>
+            </div>
+        </div>
+        <div id="footerModal">
+        <div id='imgFooterModal'>
+            <img  class='imgLinkEmpresa' src="https://images.vexels.com/media/users/3/144883/isolated/preview/09a503901819e475a3c352ddd3e528b3-curso-de-construcao-de-empresa.png" alt="">
+        </div>
+            
+            <a href="">Visite nosso perfil.</a>
+        </div>
         `
 
         return modal
     }
-    
-    console.log(response)
 
-    const container = document.querySelector('#containerModal')
-    const resposta = criarModal(response)
-    container.replaceChildren(resposta)
+    const container = document.querySelector('#bodyModal')
+    const conteudoModal = criarModal(response)
+    container.replaceChildren(conteudoModal)
     // await getVaga(idVaga)
     // console.log(response)
-
+  
     const modal = document.getElementById('containerModal')
-    modal.classList.add('active');
+    // modal.classList.add('active');
+    modal.style.display = 'block';
+    modal.body.style.overflow = 'hidden';
 }
 
-const candidatar = async(idVaga, idCandidato, idStatus) => {
+const closeModal = () => {
+    const modal = document.getElementById('containerModal')
+    // modal.classList.remove('active');
+    modal.style.display = 'none';
+    modal.body.style.overflow = 'auto';
+    
+  }
+
+const candidatar = async (idVaga, idCandidato, idStatus) => {
 
     const urlAcoes = `http://10.107.144.26:8080/vaga/candidatar?idVaga=${idVaga}&idStatus=${idStatus}&idCandidato=${idCandidato}`
+    console.log(urlAcoes);
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept':'application/json',
+            'Accept': 'application/json',
         }
     }
     await fetch(urlAcoes, options).then(resp => resp.json()).then(json => {
-
-        if(idStatus == 1){
-
-            closeModal()
-            alert('VAGA CANDIDATADA')
-
-        }if (idStatus == 2) {
+        console.log(json)
+        const status = json.idStatus
+        switch(status) {
+            case 1:
+                closeModal()
+                alert('VAGA SALVA')
+            case 2:
+                closeModal()
+                alert('VAGA DISPENSADA')
+            case 3:
+                closeModal()
+                alert('VAGA DISPENSADA')
             
-            closeModal()
-            alert('VAGA SALVA')
-
-        } else {
-            
-            closeModal()
-            alert('VAGA DISPENSADA')
         }
+        // if (idStatus == 1) {
+
+        //     
+
+        // }
+        // if (idStatus == 2) {
+
+        //     closeModal()
+        //     alert('VAGA SALVA')
+
+        // } else {
+
+        //     closeModal()
+        //     alert('VAGA DISPENSADA')
+        // }
     }).catch(() => {
         alert('Houve algum problema ao interagir com a vaga.')
     })
 
 }
 
-const closeModal = () => {
-    const modal = document.getElementById('containerModal')
-    modal.classList.remove('active');
-    
-}
+// const closeModal = () => {
+//     const modal = document.getElementById('containerModal')
+//     modal.classList.remove('active');
 
+// }
