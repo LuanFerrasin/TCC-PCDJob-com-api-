@@ -32,5 +32,11 @@ const autenticar = (dados) => {
     })
 }
 
+function voltarCadastro(){
+
+   window.location.href="../empresa/cadastro.html";
+
+}
 
 document.getElementById('btnEntrar').addEventListener('click', recuperarDados)
+document.getElementById('btn-cadastrar').addEventListener('click',voltarCadastro)

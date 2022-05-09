@@ -361,6 +361,7 @@ input{
     height: 30px;
     background: #C6DCBB;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .informacoesEmpresa button,.endereco button{
@@ -482,6 +483,11 @@ input{
     font-family: 'Poppins', sans-serif;
     border: none;
     background-color: white;
+    cursor: pointer;
+}
+
+#btnSalvar{
+    cursor: pointer;
 }
 
 footer{

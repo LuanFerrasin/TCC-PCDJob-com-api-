@@ -41,7 +41,7 @@ document.getElementById('btnCadastro').addEventListener('click', cadastrarEmpres
 
 
 const postEmpresa =  async(empresa) => {
-    const urlCadastro = 'http://10.107.144.26:8080/empresa/cadastrar'
+    const urlCadastro = 'http://10.107.144.22:8080/empresa/cadastrar'
     const options = {
         method: 'POST',
         body:JSON.stringify(empresa),
@@ -66,7 +66,7 @@ const exibir = (id) => {
 }
 
 const putProduto = async (empresa) => {
-    const urlAtualizar = 'http://10.107.144.26:8080/empresa/atualizar/'
+    const urlAtualizar = 'http://10.107.144.22:8080/empresa/atualizar/'
     const options = {
         method: 'PUT',
         body: JSON.stringify(empresa),
@@ -79,7 +79,7 @@ const putProduto = async (empresa) => {
 }
 
 const deleteProduto = async (empresa) => {
-    const urldeletar = 'http://10.107.144.26:8080/empresa/deletar/'
+    const urldeletar = 'http://10.107.144.22:8080/empresa/deletar/'
     const options = {
         method: 'DELETE',
         headers: {
@@ -92,10 +92,16 @@ const deleteProduto = async (empresa) => {
 
 const getEmpresa = () => {
 
-    const urlListar = 'http://10.107.144.26:8080/empresa/listar'
+    const urlListar = 'http://10.107.144.22:8080/empresa/listar'
     const options = {
         method: 'GET',
     }
     fetch(urlListar, options).then(resp=>console.log(resp))
 
 }
+
+function voltarLogin(){
+    window.location.href="../empresa/login.html";
+}
+
+document.getElementById("btn-entrar").addEventListener('click', voltarLogin)

@@ -230,3 +230,21 @@ span{
             
         }
     }
+
+    @media (max-width:1920px){
+        .select-candidato{
+            width: auto;
+            height:100px;   
+            margin-left:120px;
+            margin-top:-50px;
+        }
+    }
+
+    @media (max-width:1920px){
+        .select-empresa{
+            width: auto;
+            height:100px;   
+            margin-left:130px;
+            margin-top:-50px;
+        }
+    }
