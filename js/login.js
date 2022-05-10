@@ -12,7 +12,7 @@ const recuperarDados = async() => {
 }
 
 const autenticar = (dados) => {
-    const url = 'http://10.107.144.26:8080/auth/candidato'
+    const url = 'http://10.107.144.22:8080/auth/candidato'
     const options = {
         method: 'POST',
         body:JSON.stringify(dados),

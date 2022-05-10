@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">   
-    <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "asfBZcBqQ3");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script>
+        (function (d) {
+            var s = d.createElement("script");
+            s.setAttribute("data-account", "asfBZcBqQ3");
+            s.setAttribute("src", "https://cdn.userway.org/widget.js");
+            (d.body || d.head).appendChild(s);
+        })(document)
+    </script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website
+            accessibility</a></noscript>
     <link rel="stylesheet" href="../css/modalVaga.css">
     <link rel="stylesheet" href="../css/vagas.css">
     <script src="../js/modal.js" defer></script>
     <script src="../js/vaga.js" defer type="module"></script>
+    <script src="../js/filtragem.js" defer></script>
     <title>Vagas</title>
 </head>
+
 <body>
     <section id="containerModal">
-        <div id='bodyModal'> 
+        <div id='bodyModal'>
 
         </div>
     </section>
@@ -26,13 +37,87 @@
                 <img src="../img/logo.png" alt="">
             </div>
             <div class="barraPesquisa">
-                <input type="text">
-                <img src="../img/pesquisa.png" alt="">
+                <input id='classe-classe' type="text" style="border: 0; outline: none; padding-left: 10px;">
+                <img src="../img/pesquisa.png" alt="" keypress="capturar()">
             </div>
             <div class="fotoPerfil">
-                
+
             </div>
         </div>
+        <script>
+            var capturando = "";
+
+            // document.body.addEventListener('keypress', function (event) {
+            //     const key = event.key;
+            //     const code = event.keyCode;
+            //     console.log(`Key: ${key}, Code ${code}`);
+            // });
+
+            const limparElementos = (elemento) => {
+                while (elemento.firstChild) {
+                    elemento.removeChild(elemento.lastChild)
+                }
+            }
+
+            const pesquisar = async (evento) => {
+                if (event.key == 'Enter') {
+                    const pesquisa = event.target.value
+                    console.log(pesquisa);
+                    const url = `http://10.107.144.22:8080/pesquisa/?palavra=${pesquisa}`
+                    const response = await fetch(url).then(resp => resp.json()).then(dados => dados.content)
+                    const vagas = await response
+
+                    limparElementos(document.querySelector('.vagasConteiner'))
+                    carregarVagas(vagas)
+                }
+            }
+
+            const criarVagaPesquisa = async ({
+                titulo,
+                empresa,
+                localTrabalho,
+                id,
+                deficiencia
+            }) => {
+                const container = document.querySelector('.vagasConteiner')
+                const vaga = document.createElement('div')
+                vaga.classList.add("vagas")
+                vaga.innerHTML = `
+                        <div class="headerVagas">
+                            <div class="informacaoVaga">
+                                <div class="imgEmpresa">
+                                    <img src="../img/logoEmpresa.png" alt="">
+                                </div>
+                            <div class="conteudoVaga">
+                            <h1>${titulo}</h1>
+                            <div class="empresaVaga">
+                                <img src="../img/empresa.png" alt=""> 
+                                <p>${empresa.empresa}</p> 
+                            </div>
+                            <div class="empresaVaga">
+                                <img src="../img/local.png" alt=""> 
+                                <p>${localTrabalho.cidade} - ${localTrabalho.sigla}</p> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerVagas">
+                    <div class="tipoDeficiencia">
+                        <h2>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)}</h2>
+                    </div>
+                    <div class="botaoSaibaMais">
+                        <button id="btnSaibaMais" onClick="abrirModal(${id})">Saiba mais</button>
+                    </div>
+                </div>
+                `
+
+                container.appendChild(vaga)   
+            }
+
+            const carregarVagas = (vaga) => vaga.forEach(criarVagaPesquisa)
+
+            document.getElementById('classe-classe').addEventListener('keypress', pesquisar)
+        </script>
         <div class="conteinerTitulo">
             <h1>Vagas</h1>
         </div>
@@ -112,20 +197,20 @@
                         <div class="conteudoVaga">
                             <h1>Desenvolvedor Web</h1>
                             <div class="empresaVaga">
-                                <img src="../img/empresa.png" alt=""> 
-                                <p>Nubank</p> 
+                                <img src="../img/empresa.png" alt="">
+                                <p>Nubank</p>
                             </div>
                             <div class="empresaVaga">
-                                <img src="../img/local.png" alt=""> 
-                                <p>Alphavile - SP</p> 
+                                <img src="../img/local.png" alt="">
+                                <p>Alphavile - SP</p>
                             </div>
                         </div>
                     </div>
                     <div class="salvarVaga">
                         <button>
-                            <img src="../img/salvar.png" alt=""> 
+                            <img src="../img/salvar.png" alt="">
                             <p>Salvar</p>
-                        </button> 
+                        </button>
                     </div>
                 </div>
                 <div class="footerVagas">
@@ -138,14 +223,14 @@
                 </div>
             </div>
             <script>
-                
-           </script>
+
+            </script>
         </div>
     </main>
     <footer>
         <div class="direitos">
             <p>
-                PCD Job  é um projeto estudantil e tem todos os direitos reservados ©2022
+                PCD Job é um projeto estudantil e tem todos os direitos reservados ©2022
             </p>
         </div>
         <div class="versao">
@@ -155,4 +240,5 @@
         </div>
     </footer>
 </body>
+
 </html>

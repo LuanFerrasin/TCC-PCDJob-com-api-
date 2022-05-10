@@ -10,7 +10,7 @@ const abrirModal = async (id) => {
 
     console.log(idCandidato);
 
-    const urlBuscar = `http://10.107.144.26:8080/vaga/buscar/${idVaga}`
+    const urlBuscar = `http://10.107.144.22:8080/vaga/buscar/${idVaga}`
     const response = await fetch(urlBuscar).then(resp => resp.json()).then(dados => dados)
 
     console.log(response);
@@ -181,7 +181,7 @@ const candidatar = async (idVaga, idCandidato, idStatus) => {
 
     console.log(idVaga, idCandidato, idStatus);
 
-    const urlAcoes = `http://10.107.144.26:8080/vaga/candidatar?idVaga=${idVaga}&idStatus=${idStatus}&idCandidato=${idCandidato}`
+    const urlAcoes = `http://10.107.144.22:8080/vaga/candidatar?idVaga=${idVaga}&idStatus=${idStatus}&idCandidato=${idCandidato}`
     console.log(urlAcoes);
     const options = {
         method: 'POST',
@@ -202,12 +202,17 @@ const retornarStatus = (idStatus) =>{
         case 1:
             alert('feito com sucesso')
             closeModal()
+            document.location.reload(true)
             break;
         case 2:
             alert('feito com sucesso')
+            closeModal()
+            document.location.reload(true)
             break;
         case 3:
             alert('feito com sucesso')
+            closeModal()
+            document.location.reload(true)
             break;            
     
        

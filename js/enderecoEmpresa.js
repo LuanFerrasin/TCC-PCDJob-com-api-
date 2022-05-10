@@ -87,7 +87,7 @@ document.getElementById('btnCadastro').addEventListener('click', cadastrarEndere
 
 
 const postEnderecoEmpresa =  async(endereco, id) => {
-    const urlCadastro = `http://10.107.144.26:8080/empresa/cadastrar/endereco/${id}`
+    const urlCadastro = `http://10.107.144.22:8080/empresa/cadastrar/endereco/${id}`
     const options = {
         method: 'POST',
         body:JSON.stringify(endereco),

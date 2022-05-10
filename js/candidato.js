@@ -27,7 +27,7 @@ document.getElementById('btnCadastro').addEventListener('click', cadastrarCandid
 
 
 const postCandidato =  async(candidato) => {
-    const urlCadastro = 'http://10.107.144.26:8080/candidato/cadastrar'
+    const urlCadastro = 'http://10.107.144.22:8080/candidato/cadastrar'
     const options = {
         method: 'POST',
         body:JSON.stringify(candidato),
@@ -41,40 +41,4 @@ const postCandidato =  async(candidato) => {
    
 
 }
-
-const getCandidato = () => {
-
-    const urlListar = 'http://10.107.144.26:8080/candidato/listar'
-    const options = {
-        method: 'GET',
-    }
-    fetch(urlListar, options).then(resp=>console.log(resp))
-
-}
-
-const putProduto = async (candidato) => {
-    const urlAtualizar = 'http://10.107.144.26:8080/candidato/atualizar/'
-    const options = {
-        method: 'PUT',
-        body: JSON.stringify(candidato),
-        headers: {
-            'content-Type' : 'application/json'
-        }
-    }
-
-    await fetch(`${urlAtualizar}${candidato.id}`, options)
-}
-
-const deleteProduto = async (candidato) => {
-    const urldeletar = 'http://10.107.144.26:8080/candidato/deletar/'
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'content-Type' : 'application/json'
-        }
-    }
-
-    await fetch(`${urldeletar}${candidato.id}`, options)
-}
-
 

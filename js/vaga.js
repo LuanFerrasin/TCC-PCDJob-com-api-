@@ -1,10 +1,17 @@
 'use strict';
 
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var idCandidato = url.searchParams.get("id");
 
-    const getVaga = async() => {
 
-    const urlListar = 'http://10.107.144.26:8080/vaga/listar'
-    const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content).then(content => content.filter (item => item.status == 1))
+
+    const getVaga = async(idCandidato) => {
+    
+
+    const urlListar = `http://10.107.144.22:8080/vaga/listar/${idCandidato}`
+    const response = await fetch(urlListar).then(resp => resp.json()).then(dados => dados.content)
+
     return response
 
     }
@@ -47,11 +54,9 @@
 
     const carregarVaga = async() => {
     const container = document.querySelector('.vagasConteiner')
-    const vagas = await getVaga();
+    const vagas = await getVaga(idCandidato);
     const colunas = vagas.map(criarVaga)
     container.replaceChildren(...colunas)
     }
-
-// document.querySelector("#btnSaibaMais").addEventListener("click", abrirModal);
 
 carregarVaga();
