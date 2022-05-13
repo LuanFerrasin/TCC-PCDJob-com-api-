@@ -197,9 +197,8 @@ const candidatar = async (idVaga, idCandidato, idStatus) => {
 
 }
 
-const popUpVisible = () => {
-    const popUp = document.getElementsByClassName('popUp')
-    popUp.classList.add('')
+const PopUpComponent = () => {
+    ;
 }
 
 const retornarStatus = (idStatus) =>{
