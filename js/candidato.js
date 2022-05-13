@@ -1,5 +1,7 @@
 'use strict';
 
+let statusReturn = 0
+
 const validacao = ({nome, email, senha}) => {
 
     if(nome.length > 3 && nome.length <= 50 && email.length > 9 && email.length <= 100  && senha.length > 3 && senha.length <= 50) {
@@ -11,7 +13,28 @@ const validacao = ({nome, email, senha}) => {
 
 } 
 
-const cadastrarCandidato = async() => {
+const verificaEmail = () => {
+    const url = 'http://10.107.144.22:8080/email/candidato'
+    const emailBody = {
+        email: document.getElementById('email').value
+    }
+    const options = {
+        method: 'POST',
+        body:JSON.stringify(emailBody),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept':'application/json',
+        }
+    }
+    fetch(url, options).then(resp => {
+        cadastrarCandidato(resp.status)
+
+    }).catch(error => {
+        console.log("Tudo errado né meu filhoe" + error)
+    })
+}
+
+const cadastrarCandidato = async(status) => {
     const candidato = {
         nome: document.getElementById('nome').value,
         email: document.getElementById('email').value,
@@ -19,15 +42,23 @@ const cadastrarCandidato = async() => {
         genero: "PREFIRO_NAO_INFORMAR"
     }
 
-        await postCandidato(candidato).then(resp => id)
-        
+    if(status == 200) {
+        if(validacao(candidato)) {
+            await postCandidato(candidato)
+
+        } else {
+            alert("preencha os campos vazios")
+        }
+    } else {
+        alert("Email já em uso")
+    }
 }
 
-document.getElementById('btnCadastro').addEventListener('click', cadastrarCandidato)
+document.getElementById('btnCadastro').addEventListener('click', verificaEmail)
 
 
 const postCandidato =  async(candidato) => {
-    const urlCadastro = 'http://10.107.144.26:8080/candidato/cadastrar'
+    const urlCadastro = 'http://10.107.144.22:8080/candidato/cadastrar'
     const options = {
         method: 'POST',
         body:JSON.stringify(candidato),
@@ -37,14 +68,16 @@ const postCandidato =  async(candidato) => {
         }
     }
 
-    await fetch(urlCadastro, options).then(resp=>console.log(resp.json(Object.id)))
+    fetch(urlCadastro, options).then(resp => resp.json()).then(json => {
+        console.log(json)
+    })
    
 
 }
 
 const getCandidato = () => {
 
-    const urlListar = 'http://10.107.144.26:8080/candidato/listar'
+    const urlListar = 'http://10.107.144.22:8080/candidato/listar'
     const options = {
         method: 'GET',
     }
@@ -53,7 +86,7 @@ const getCandidato = () => {
 }
 
 const putProduto = async (candidato) => {
-    const urlAtualizar = 'http://10.107.144.26:8080/candidato/atualizar/'
+    const urlAtualizar = 'http://10.107.144.22:8080/candidato/atualizar/'
     const options = {
         method: 'PUT',
         body: JSON.stringify(candidato),
@@ -66,7 +99,7 @@ const putProduto = async (candidato) => {
 }
 
 const deleteProduto = async (candidato) => {
-    const urldeletar = 'http://10.107.144.26:8080/candidato/deletar/'
+    const urldeletar = 'http://10.107.144.22:8080/candidato/deletar/'
     const options = {
         method: 'DELETE',
         headers: {
@@ -77,8 +110,9 @@ const deleteProduto = async (candidato) => {
     await fetch(`${urldeletar}${candidato.id}`, options)
 }
 
-function voltarLogin(){
-    window.location.href= "../candidato/login.html";
+function voltarLoginCandidato(){
+
+    window.location.href = '../candidato/login.html';
 }
 
-document.getElementById("btn-entrar").addEventListener("click", voltarLogin)
+document.getElementById('btn-entrar').addEventListener('click', voltarLoginCandidato)

@@ -1,6 +1,5 @@
 " use strict"
 
-fetch('http://10.107.144.22:8080/empresa/buscar/1')
 
 const putEmpresa = async (empresa) => {
     const urlAtualizar = 'http://10.107.144.22:8080/empresa/atualizar/3'
@@ -24,4 +23,6 @@ const getEmpresa = () => {
     fetch(urlListar, options).then(resp=>console.log(resp))
 
 }
+
+console.log(empresa);
 

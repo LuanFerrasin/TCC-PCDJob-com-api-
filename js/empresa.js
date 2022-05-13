@@ -65,43 +65,11 @@ const exibir = (id) => {
     console.log(id)
 }
 
-const putProduto = async (empresa) => {
-    const urlAtualizar = 'http://10.107.144.22:8080/empresa/atualizar/'
-    const options = {
-        method: 'PUT',
-        body: JSON.stringify(empresa),
-        headers: {
-            'content-Type' : 'application/json'
-        }
-    }
+function voltarLoginEmpresa(){
 
-    await fetch(`${urlAtualizar}${empresa.id}`, options)
+    window.location.href = '../empresa/login.html';
 }
 
-const deleteProduto = async (empresa) => {
-    const urldeletar = 'http://10.107.144.22:8080/empresa/deletar/'
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'content-Type' : 'application/json'
-        }
-    }
 
-    await fetch(`${urldeletar}${empresa.id}`, options)
-}
 
-const getEmpresa = () => {
-
-    const urlListar = 'http://10.107.144.22:8080/empresa/listar'
-    const options = {
-        method: 'GET',
-    }
-    fetch(urlListar, options).then(resp=>console.log(resp))
-
-}
-
-function voltarLogin(){
-    window.location.href="../empresa/login.html";
-}
-
-document.getElementById("btn-entrar").addEventListener('click', voltarLogin)
+document.getElementById('btn-entrar').addEventListener('click',voltarLoginEmpresa)

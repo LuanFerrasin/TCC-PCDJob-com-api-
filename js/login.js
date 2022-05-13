@@ -1,5 +1,3 @@
-" use strict"
-
 'use strict';
 
 let idCandidato
@@ -14,7 +12,7 @@ const recuperarDados = async() => {
 }
 
 const autenticar = (dados) => {
-    const url = 'http://10.107.144.26:8080/auth/candidato'
+    const url = 'http://10.107.144.22:8080/auth/candidato'
     const options = {
         method: 'POST',
         body:JSON.stringify(dados),
@@ -29,15 +27,15 @@ const autenticar = (dados) => {
         idCandidato = json.id
         if(idCandidato != null) {
             console.log(idCandidato)
-            window.location.href = `vagas.html?id=${idCandidato}`
+            window.location.href = `vagasSalvas.html?id=${idCandidato}`
         }
     })
 }
 
-function abrirCadastro(){
- window.location.href = "../candidato/cadastro.html";
+function voltarCadastroCandidato(){
+
+    window.location.href= '../candidato/cadastro.html';
 }
 
 document.getElementById('btnEntrar').addEventListener('click', recuperarDados)
-
-document.getElementById("btn-cadastrar").addEventListener("click", abrirCadastro);
+document.getElementById('btn-cadastrar').addEventListener('click', voltarCadastroCandidato)
