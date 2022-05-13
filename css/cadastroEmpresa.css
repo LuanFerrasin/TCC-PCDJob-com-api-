@@ -8,6 +8,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    overflow: hidden;
     
 }
 header{
@@ -95,7 +96,7 @@ main{
     background-color: #F7F5F5;
     border-radius: 10px;
     width: 500px;
-    height: 630px;
+    height: 52%;
     padding: 35px;
 }
 .cadastro form{
@@ -183,5 +184,18 @@ div.single-input .input:valid ~ label{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media (max-width:2000px){
+    .cadastro{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #F7F5F5;
+        border-radius: 10px;
+        width: 500px;
+        height: 60%;
+        padding: 35px;
+        margin-top:10%;
+    }
 }
 
