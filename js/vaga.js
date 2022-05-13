@@ -41,7 +41,7 @@
                 </div>
                 <div class="footerVagas">
                     <div class="tipoDeficiencia">
-                        <h2>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)}</h2>
+                        <h2>Deficiencia: ${deficiencia.map(item => item.tipoDeficiencia)[0]}</h2>
                     </div>
                     <div class="botaoSaibaMais">
                         <button id="btnSaibaMais" onClick="abrirModal(${id})">Saiba mais</button>
@@ -60,3 +60,7 @@
     }
 
 carregarVaga();
+
+export {
+    carregarVaga,
+}

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(../img/waves.png);
+    background-image: url(../../img/waves.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;

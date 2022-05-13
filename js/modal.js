@@ -197,6 +197,11 @@ const candidatar = async (idVaga, idCandidato, idStatus) => {
 
 }
 
+const popUpVisible = () => {
+    const popUp = document.getElementsByClassName('popUp')
+    popUp.classList.add('')
+}
+
 const retornarStatus = (idStatus) =>{
     switch (idStatus) {
         case 1:
@@ -218,6 +223,8 @@ const retornarStatus = (idStatus) =>{
        
     }
 }
+
+document.getElementById('containerModal').addEventListener('click', closeModal)
 
 // const closeModal = () => {
 //     const modal = document.getElementById('containerModal')
