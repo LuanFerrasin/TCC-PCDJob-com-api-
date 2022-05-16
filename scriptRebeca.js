@@ -1,3 +1,4 @@
+ <>
  <View vw class="enabled">
         <View vw-access-button className="active"></View>
         <View vw-plugin-wrapper>
@@ -8,3 +9,4 @@
       <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
       </script>
+      </>
