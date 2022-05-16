@@ -92,7 +92,7 @@ p{
     font-size:1.5rem;
     width:60%;
 }
-.botao-formulario{
+#botao-formulario{
     width: 400px;
     height:80px;
     margin-top:40px;
@@ -101,6 +101,7 @@ p{
     font-size:2rem;
     border: none;
     border-radius:5px;
+    cursor: pointer;
 }
 @media (max-width:2000px){
     .botao-formulario{
